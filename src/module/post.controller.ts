@@ -22,11 +22,11 @@ const createPost = async (req: Request, res: Response) => {
 // all post
 const getPosts = async (req: Request, res: Response) => {
   try {
-    const result = await postService.getPosts();
+    const { searchTerm } = req.query;
+    const result = await postService.getPosts({ searchTerm });
     res.status(201).json(result);
   } catch (e) {
     res.status(400).json({
-      error: "Post fetch successful",
       details: e,
     });
   }
