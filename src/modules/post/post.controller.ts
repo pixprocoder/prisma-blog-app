@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { postService } from "./post.service";
-import paginationSortingHelper from "../helpers/paginationSortingHelper";
-import { PostStatus } from "../../generated/prisma/client";
+import { PostStatus } from "../../../generated/prisma/enums";
+import paginationSortingHelper from "../../helpers/paginationSortingHelper";
 
 const createPost = async (req: Request, res: Response) => {
   try {

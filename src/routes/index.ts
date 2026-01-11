@@ -1,11 +1,16 @@
 import express from "express";
-import { postRouters } from "../modules/post.route";
+import { postRouters } from "../modules/post/post.route";
+import { commentRouters } from "../modules/comment/comment.route";
 const router = express.Router();
 
 const moduleRoutes = [
   {
     path: "/posts",
     route: postRouters,
+  },
+  {
+    path: "/comments",
+    route: commentRouters,
   },
 ];
 
