@@ -5,6 +5,12 @@ const router = express.Router();
 
 router.get("/", PostController.getPosts);
 
+router.get(
+  "/my-posts",
+  auth(UserRole.USER, UserRole.ADMIN),
+  PostController.getMyPosts
+);
+
 router.get("/:postId", PostController.getSinglePost);
 
 router.post("/", auth(UserRole.USER), PostController.createPost);
