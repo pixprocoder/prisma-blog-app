@@ -8,7 +8,7 @@ import { prisma } from "../../lib/prisma";
 
 const createPost = async (
   data: Omit<Post, "id" | "createdAt" | "updatedAt" | "authorId">,
-  userId: string
+  userId: string,
 ) => {
   const result = await prisma.post.create({
     data: {
@@ -226,7 +226,7 @@ const updatePost = async (
   postId: string,
   data: Partial<Post>,
   authorId: string,
-  isAdmin: boolean
+  isAdmin: boolean,
 ) => {
   const postData = await prisma.post.findUniqueOrThrow({
     where: {
@@ -259,7 +259,7 @@ const updatePost = async (
 const deletePost = async (
   postId: string,
   authorId: string,
-  isAdmin: boolean
+  isAdmin: boolean,
 ) => {
   const postData = await prisma.post.findUniqueOrThrow({
     where: {
